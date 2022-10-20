@@ -6,7 +6,7 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 body {
-  background-color: #f2f2f2;
+  background-color: #ed9292;
 }
 .wrapper {
   height: 100vh;
@@ -16,7 +16,7 @@ body {
 
 .validation-form {
   width: 500px;
-  background-color: #ffffff;
+  background-color: #def2df;
   padding: 1rem;
   border-radius: 0.5rem;
   border: 1px solid #d8d8d8;
