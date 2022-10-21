@@ -1,73 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Validering av formulär</title>
-</head>
-<body>
-  <div class="wrapper">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Validering av formulär</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="validationForm" class="validation-form">
+        <div class="headline">
+          <h1>Validation Form</h1>
+        </div>
+        <div class="form-content">
+          <div class="input-group">
+            <label for="firstName" class="input-label">First Name:</label>
+            <input type="text" id="firstName" class="form-control" />
+            <div class="error-message">You need to add a valid name</div>
+          </div>
 
-    <form id="validationForm" class="validation-form">
-      <div class="headline">
-        <h1>Validation Form</h1>
-      </div>
-      <div class="form-content">
+          <div class="input-group">
+            <label for="lastName" class="input-label">Last Name:</label>
+            <input type="text" id="lastName" class="form-control" />
+            <div class="error-message">You need to add a valid name</div>
+          </div>
 
-        <div class="input-group">
-          <label for="firstName" class="input-label">First Name:</label>
-          <input type="text" id="firstName" class="form-control">
-          <div class="error-message">You need to add a valid name</div>
+          <div class="input-group">
+            <label for="email" class="input-label">Email:</label>
+            <input type="email" id="email" class="form-control" />
+            <div class="error-message">You need to add a valid email</div>
+          </div>
 
+          <div class="input-group">
+            <label for="password" class="input-label">Password:</label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              id="password"
+              class="form-control"
+            />
+            <div class="error-message">
+              The password is not matching or is to short
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="repeatPassword" class="input-label"
+              >Repeat Password:</label
+            >
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              id="repeatPassword"
+              class="form-control"
+            />
+            <div class="error-message">The password is not matching or is to short</div>
+          </div>
+
+          <div class="input-group">
+            <input type="checkbox" id="terms" />
+            <label for="terms">Accept terms and conditions</label>
+            <div class="error-message">You need to accept the terms</div>
+          </div>
+
+          <div>
+            <button class="btn btn-block btn-primary">Validate</button>
+          </div>
         </div>
 
-        <div class="input-group">
-          <label for="lastName" class="input-label">Last Name:</label>
-          <input type="text" id="lastName" class="form-control">
-          <div class="error-message">You need to add a valid name</div>
+        <div class="validation-feedback">
+          <p id="errorMessage" class="d-none">
+            All fields must be filled in correctly!
+          </p>
         </div>
-
-        <div class="input-group">
-          <label for="email" class="input-label">Email:</label>
-          <input type="email" id="email" class="form-control">
-          <div class="error-message">You need to add a valid email</div>
-        </div>
-
-        <div class="input-group">
-          <label for="password" class="input-label">Password:</label>
-          <input type="password"  placeholder="Enter Password" id="password" class="form-control">
-          <div class="error-message">The password is not matching or have not value objects </div>
-
-        </div>
-
-        <div class="input-group">
-          <label for="repeatPassword" class="input-label">Repeat Password:</label>
-          <input type="password"  placeholder="Confirm Password"id="repeatPassword" class="form-control">
-          <div class="error-message">The password is not matching </div>
-        </div>
-
-        <div class="input-group">
-          <input type="checkbox" id="terms">
-          <label for="terms">Accept terms and conditions</label>
-          <div class="error-message">You need to accept the terms </div>
-        </div>
-
-        <div>
-          <button class="btn btn-block btn-primary">Validate</button>
-        </div>
-
-      </div>
-
-      <div class="validation-feedback">
-        <p id="errorMessage" class="d-none">Alla fält måste vara korrekt ifyllda!</p>
-      </div>
-
-    </form>
-  </div>
-  <script src="script.js"></script>
-</body>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
-
-

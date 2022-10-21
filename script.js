@@ -7,13 +7,15 @@ const validateText = (id) => {
   const input = document.querySelector(id);
 
   if (input.value.trim() === " ") {
-    // console.log("YOU NEED TO HAVE A CORRECT NAME  ");
+    console.log(input.id + "YOU NEED TO HAVE A CORRECT NAME  ");
     return setError(input);
-  } else if (input.value.length < 5) {
-    // console.log("YOU NEED TO HAVE A CORRECT name");
+  } else if (input.value.length < 2) {
+    console.log(input.id + "You need to have at least 3 characters name");
+    return setError(input);
+  } else if (/\d/.test(input.value)) {
+    console.log(input.id + "your input contains numbers");
     return setError(input);
   } else {
-    // console.log("GREAT-NAME");
     return setSuccess(input);
   }
 };
@@ -24,14 +26,35 @@ const validateEmail = (id) => {
   const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,6}$/;
 
   if (email.value.trim() === " ") {
-    // console.log("YOU NEED TO HAVE A CORRECT EMAIL");
+    console.log(input.id + " you have to fill in a email");
     return setError(email);
   } else if (!regEx.test(email.value)) {
-    // console.log("YOU NEED TO HAVE A CORRECT EMAIL");
+    console.log(input.id + " this is not a valid email");
     return setError(email);
   } else {
-    console.log("GREAT-EMAIL");
     return setSuccess(email);
+  }
+};
+
+const validatePassword = (id) => {
+  const passWord = document.querySelector(id);
+  const repeatPassword = document.querySelector(id);
+  console.log(passWord);
+  if (passWord.value.trim() === "") {
+    console.log("du har inte skrivit något ");
+    setError(passWord, "password is requierd");
+  } else if (passWord.value.length < 8) {
+    console.log("behöver vara längre än 8");
+    setError(passWord, "password must be at least 8 character");
+  } else if (repeatPassword.value !== passWord.value) {
+    console.log("the password do not match");
+    setError(passWord);
+    //   } else if (repeatPassword.value === passWord.value) {
+    //     console.log("the password match!!!!!!!!!");
+    //     return setSuccess(passWord);
+  } else {
+    console.log("the password match!!!!!!!!!");
+    setSuccess(passWord);
   }
 };
 
@@ -65,31 +88,20 @@ const validateCheckbox = (id) => {
 //   }
 // };
 
-const validatePassword = (id) => {
-  const passWord = document.querySelector(id);
-  if (passWord.value.trim() === "") {
-    console.log("du har inte skrivit något ");
-    return setError(passWord);
-  } else if (passWord.length < 8) {
-    console.log("behöver vara längre än 8");
-    setError(passWord);
-  } else {
-    return setSuccess;
-  }
-};
-
-const validateRepeatPassword = (id) => {
-  //   console.log("repeat password");
-  const repeatPassword = document.querySelector(id);
-  if (repeatPassword.value.trim() === "") {
-    setError(passWord);
-  } else if (validatePassword.value !== validateRepeatPassword.value) {
-    console.log("the password do not match");
-    setError(passWord);
-  } else if (validatePassword.value === validateRepeatPassword.value) {
-    return setSuccess(passWord);
-  }
-};
+// const validateRepeatPassword = (id) => {
+// //   const repeatPassword = document.getElementById("repeatPassword");
+// //   console.log("repeatPassword");
+// const repeatPassword = document.querySelector(id);
+//   console.log(repeatPassword);
+//   if (repeatPassword.value.trim() === "") {
+//     setError(passWord);
+//   } else if (repeatPassword.value !== passWord.value) {
+//     console.log("the password do not match");
+//     setError(passWord);
+//   } else if (repeatPassword.value === passWord.value) {
+//     return setSuccess(passWord);
+//   }
+// };
 
 // MINNA ERROR FUNKTIONER
 
@@ -132,6 +144,9 @@ form.addEventListener("submit", (e) => {
       errors[i] = validateEmail(inputId);
     } else if (form[i].type === "password") {
       errors[i] = validatePassword(inputId);
+      // } else if (form[i].value !== repeatPassword.value) {
+      //   console.log("the password is not matching");
+      //   errors[i] = setError(repeatPassword);
     } else if (form[i].type === "checkbox") {
       errors[i] = validateCheckbox(inputId);
     }
@@ -141,11 +156,11 @@ form.addEventListener("submit", (e) => {
 
   if (errors.includes(false)) {
     errorMessage.classList.remove("d-none");
-    // visa fel längst ner
+
     console.log("det finns fel i formuläret");
   } else {
     errorMessage.classList.add("d-none");
-    // dölja
+    console.log("allt gick igenom");
     const user = {
       firstName: firstName.value,
       lastName: lastName.value,
@@ -154,11 +169,5 @@ form.addEventListener("submit", (e) => {
     };
 
     console.log(user);
-    // console.log(document.getElementById("firstName").value);
-    // console.log(document.getElementById("lastName").value);
-    // console.log(document.getElementById("email").value);
-    // console.log(document.getElementById("checkbox"));
-    // console.log(document.getElementById("password").value);
-    // console.log(document.getElementById("repeatPassword").value);
   }
 });
