@@ -1,0 +1,46 @@
+*{
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: rgb(233, 231, 240);
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 50rem;
+  }
+  
+  .user {
+    background-color: #fff;
+    box-shadow: 3px 3px 9px #00000039;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-block: 1rem;
+    font-size: 30px;
+  }
+  
+  .user-dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .user_name {
+   font-size: 2em;
+   font-weight: bold;
+  }
+  .user_company,
+  .user_email {
+    font-size: .7em;
+  }
+  
+  .user_name,
+  .user_company,
+  .user_email {
+    pointer-events: none;
+  }
